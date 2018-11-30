@@ -47,28 +47,23 @@ app.use((req,res,next) => {
 app.use(express.static(__dirname + '/public'));
 
 app.get('/',(req, res) => {
-  //res.send('<h1>Hello Express!</h1>');
-  // res.send({
-  //   name: 'Christian',
-  //   likes: [
-  //     'Holidays',
-  //     'Bikes',
-  //     'Coding',
-  //     'Music'
-  //   ]
-  // })
-res.render('home.hbs',{
-  pageTitle: 'Home Page',
-  welcomeMessage: 'Welcome to my site'
-})
-
+  res.render('home.hbs',{
+    pageTitle: 'Home Page',
+    welcomeMessage: 'Welcome to my site'
+  })
 });
 
 app.get('/about',(req,res) =>{
   res.render('about.hbs', {
     pageTitle: 'About Page'
   });
-})
+});
+
+app.get('/portfolio',(req,res) => {
+  res.render('portfolio.hbs', {
+    pageTitle: 'Portfolio page'
+  });
+});
 
 app.get('/bad', (req,res) =>{
   res.send({
@@ -76,7 +71,7 @@ app.get('/bad', (req,res) =>{
     errorMessage: 'Page not found',
     errorDate: '2018-11-27'
   })
-})
+});
 
 //app prt binding
 app.listen(port, () =>{
