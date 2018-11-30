@@ -65,6 +65,12 @@ app.get('/portfolio',(req,res) => {
   });
 });
 
+app.get('/maintance',(req,res) => {
+  res.render('maintance.hbs', {
+    pageTitle: 'maintance page'
+  });
+});
+
 app.get('/bad', (req,res) =>{
   res.send({
     errorStatus: '400',
