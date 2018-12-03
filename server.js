@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
+
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear',() => {
   return new Date().getFullYear();
@@ -44,7 +45,7 @@ app.use((req,res,next) => {
 //   res.render('maintance.hbs');
 // });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
 
 app.get('/',(req, res) => {
   res.render('home.hbs',{
